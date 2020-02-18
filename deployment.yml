@@ -24,9 +24,9 @@ spec:
           # You must specify requests for CPU to autoscale
           # based on CPU utilization
           limits:
-            cpu: "100"
+            cpu: "200m"
           requests:
-            cpu: "100"
+            cpu: "200m"
       imagePullSecrets:
       - name: harbor-secret
 ---
