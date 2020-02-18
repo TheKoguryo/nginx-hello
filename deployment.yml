@@ -19,7 +19,7 @@ spec:
         image: harbor.haas-424.pez.pivotal.io/demo/nginx-hello:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - containerPort: 80
         resources:
           # You must specify requests for CPU to autoscale
           # based on CPU utilization
@@ -37,8 +37,8 @@ spec:
     app: nginx-hello
   ports:
     - protocol: TCP
-      port: 8080
-      targetPort: 8080
+      port: 80
+      targetPort: 80
   type: LoadBalancer
 ---
 apiVersion: autoscaling/v2beta1
