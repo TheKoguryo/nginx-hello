@@ -54,4 +54,4 @@ spec:
     name: nginx-hello-deployment
   minReplicas: 1
   maxReplicas: 10
-  targetCPUUtilizationPercentage: 40
+  targetCPUUtilizationPercentage: 20
