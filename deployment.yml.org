@@ -20,6 +20,11 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 80
+        resources:
+          # You must specify requests for CPU to autoscale
+          # based on CPU utilization
+          requests:
+            cpu: "250m"
       imagePullSecrets:
       - name: harbor-secret
 ---
@@ -47,9 +52,13 @@ spec:
     kind: Deployment
     name: nginx-hello
   minReplicas: 1
-  maxReplicas: 4
+  maxReplicas: 2
   metrics:
   - type: Resource
     resource:
       name: cpu
-      targetAverageUtilization: 10
+      targetAverageUtilization: 50
+  - type: Resource
+    resource:
+      name: memory
+      targetAverageValue: 100Mi
